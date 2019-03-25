@@ -1,9 +1,8 @@
 const Ajv = require('ajv')
 
-var exports = module.exports = {};
 let ajv = new Ajv();
 
-exports.default = {
+module.exports = {
   satisfyJSONschema:(received,schema) => {
     let validate = ajv.compile(schema);
     let pass=validate(received);

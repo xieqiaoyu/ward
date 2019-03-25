@@ -109,15 +109,13 @@ requestObj.prototype.patch = function () {
 
 let responseObj = function (status,headers,body) {
     this.status = status
-    this.headers = JSON.parse(JSON.stringify(headers)) //TODO:研究下是不是还有必要保留这个转化逻辑
+    this.headers = headers //可以直接用fetch 定义的headers api 来进行测试处理
     this.body = body
 
     if (showInfo) {
       console.log("Res headers:\n%s",chalk.yellow(JSON.stringify(headers)));
       console.log("Res body:\n%s\n",chalk.yellow(this.body));
     }
-
-
 }
 
 exports.apiRequest = function () {
